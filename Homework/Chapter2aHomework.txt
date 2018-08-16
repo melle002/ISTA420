@@ -1,0 +1,27 @@
+1. The order of execution of a SQL statement is:
+	FROM
+	WHERE
+	GROUP BY
+	HAVING
+	SELECT
+	ORDER BY
+
+2. The FROM clause specifies the name of the tables you want to querry and and table operators that operate those tables.
+
+3. The WHERE clause specifies a predicate or logical expression to filter the rows returned by the FROM phrase
+
+4. The GROUP BY clause arrange the rows returned by the previous logical processing phase in groups.
+
+5. The HAVING clause filters by group.
+
+6. The SELECT clause is where you specify the attributes(columns) you want to return.
+
+7. The DISTINCT keyword handles only distinct occurences of known values.
+
+8. The ORDER BY clause sorts the results in a user specified manner
+
+9. The LIMIT clause limits the number of rows returned
+
+10. The TOP clause limits the number of rows returned
+
+11. The OFFSET.....FETCH clauses are considered an extension to the ORDER BY clause. Returns values in same way as TOP but the offset keyword indicates how many rows to skip while the fetch returns the rows.
