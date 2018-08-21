@@ -4,16 +4,16 @@
 Chapter 3, Pages 103 - 123.
 #### Homework questions
 ###### 1. In general, why would you even want to join two (or more) tables together? This is a good time to think about the nature of relational algebra.
-For querry purposes
+To obtain querry results needed from multiple tables
 
 ###### 2. Describe in your own words the output from an inner join.
-  The output is the product of table rows minus the filter criteria noted in the join. returns all inner rows with rows that match from outer.
+  The output is the product of table rows minus the filter criteria noted in the join. returns all inner rows with rows that match from outer. (includes only matching rows)
 
 ###### 3. Describe in your own words the output from an outer join.
   Returns both inner and outer rows so all rows are shown. To filter rows, must be done in Where Clause
 
 ###### 4. Describe in your own words the output from an cross join.
-The out put is a product of rows from one table and the other.
+The out put is a product of rows from one table and the other. (includes all possible pairs)
 
 ###### 5. A convenient mnemonic for remembering the various joins is "Ohio."" Why is this true?
 Ohio is bigger in the middle. There is one type of cross join, one type of inner join, but three types of outer joins (left, right, full).
@@ -25,18 +25,22 @@ FROM dbo.table1 AS T1
     ON T1.col1 = T2.col1
     AND T1.col2 = T2.col2
 ```
+Multiple Join conditions
 
 ###### 7. What is the diference between the following two queries? The business problem is "How many orders do we have from each customer?"
 ```
 ================first query===============
  SELECT C.custid, COUNT(*) AS numorders
  FROM Sales.Customers AS C
- LEFT OUTER JOIN Sales.Orders AS O ON C.custid = O.custid
+ LEFT OUTER JOIN Sales.Orders AS O
+ ON C.custid = O.custid
  GROUP BY C.custid;
  ================second query===============
  SELECT C.custid, COUNT(O.orderid) AS numorders
  FROM Sales.Customers AS C
- LEFT OUTER JOIN Sales.Orders AS O ON C.custid = O.custid GROUP BY C.custid;
+ LEFT OUTER JOIN Sales.Orders AS O
+ ON C.custid = O.custid
+ GROUP BY C.custid;
  ```
  The first includes both outer and inner rows regardless of contents, the second querry ignores the outer rows because they have or could have a NULL value.
 
