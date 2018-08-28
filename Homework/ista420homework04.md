@@ -48,7 +48,7 @@ As often as needed.
 Accepts a subquery as input and returns True if the subquery returns any rows and False otherwise.
 
 ###### 8. What happens if we use the not operator before a predicate? Give an example.
-it negates it
+gives opposite value
 ```
 SELECT custid, companyname
 FROM Sales.Customers AS C
@@ -64,5 +64,5 @@ two values. Uses two-valued logic
 ###### 10. How would you a subquery to calculate aggregates? For example, you want to calculate yearly sales of a product, and you also want to keep a running sum of total sales. Explain how you would use a subquery to do this.
 
 ```
-SELECT 
+select od.orderid, od.productid, od.unitprice, od.quantity, (od.unitprice * od.quantity) as LineTotal, (select round((od.unitprice * od.quantity * 100) / sum(od1.unitprice * od1.quantity), 2) from order_details od1 where od1.orderid = od.orderid) as PctOfTotalOrder from order_details od limit 10;
 ```
