@@ -9,9 +9,9 @@ No because it relies on the order of columns in the CREATE TABLE statement. Howe
 ##### 2. When using INSERT SELECT, do you use a subquery (derived table)? Under what circumstances do you not use a subquery?
 A standard Select querry is used. According to the rules I see no reason why you couldn't use a subquerry as well. It depends how indepth or complicated the result needs to be.
 ##### 3. What is the operand for the INSERT EXEC statement?
-@
+Stored procedure or a Dynamic SQL Batch
 ##### 4. How would you use the INSERT INTO statement?
-by stating the table then the columns(optional) and passing the values
+by stating the table(optional, will create the table) then the columns(optional) and passing the values
 ##### 5. What are the parameters to the BULK INSERT statement?
 taget table, source file, and options
 ##### 6. Does IDENTITY guarantee uniqueness? If not, how do you guarantee uniqueness?
@@ -19,10 +19,10 @@ No , define a primary key or use unique constraint columns
 ##### 7. How do you create a SEQUENCE object?
 by using the CREATE SEQUENCE command
 ##### 8. How do you use a SEQUENCE object?
-
+you call it by it's name
 ##### 9. How do you alter a SEQUENCE object?
-in the UPDATE statement
+in the Alter statement
 ##### 10. What is the diﬀerence between DELETE and TRUNCATE?
 Truncate is minimally logged and DELETE is fully logged
 ##### 11. What is the diﬀerence between DELETE and DROP TABLE?
-Drop is used to drop a table. DELETE is used to delete data within the table, keeping the Table. 
+Drop is used to drop a table. DELETE is used to delete data within the table, keeping the Table.
